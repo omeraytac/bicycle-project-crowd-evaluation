@@ -1,4 +1,5 @@
 Number of annotators:  22
+Number of annotations graph saved
 Min annotation time:  170
 Max annotation time:  7596
 Average annotation time:  4130.454545454545
@@ -71,3 +72,5 @@ The most disagreed image: img_7533 where number of yes: 5 and number of no: 5
                                           'corrupt_data': 0,
                                           'occurrence': 7078}}
 Number of yes 4586 and number of no 4501 Since the outputs are very close, we can say that this dataset is pretty balanced.
+F Score Chart graph saved
+Accuracy Chart graph saved
