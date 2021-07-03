@@ -1,6 +1,6 @@
 # bicycle-project-crowd-evaluation
 
-## Instructors
+## Instructions
 
 1 - Clone this repository or download the quality_match.py file. 
 
