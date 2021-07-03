@@ -89,6 +89,9 @@ def other_results_of_users(annotations):
 				annotators[result["user"]["id"]]["corrupt_data"] += 1
 	return annotators
 
+## returns the number of results "yes" and "no" for every annotators in param=references
+# param type: json
+# return type: dictionary
 def balance_of_reference(references):
 	yes = 0
 	no = 0
@@ -99,6 +102,9 @@ def balance_of_reference(references):
 			no += 1
 	return yes, no
 
+## returns the confusion matrix
+# param type: json
+# return type: dictionary
 def confusion_matrix(annotations, references):
 	tasks = annotations["results"]["root_node"]["results"]
 	annotators = {}
@@ -117,13 +123,19 @@ def confusion_matrix(annotations, references):
 			elif result["task_output"]["answer"] == "no" and not references[image]["is_bicycle"]:
 				annotators[result["user"]["id"]]["tn"] += 1
 	return annotators
-				
+
+## returns the accuracy where param=confusion matrix
+# param type: json
+# return type: dictionary
 def accuracy(matrix):
 	accuracy_dict = {}
 	for user in matrix:
 		accuracy_dict[user] = (matrix[user]["tp"] + matrix[user]["tn"])/(matrix[user]["tp"] + matrix[user]["tn"] + matrix[user]["fp"] + matrix[user]["fn"])
 	return accuracy_dict
 
+## returns the F Score where param=confusion matrix
+# param type: json
+# return type: dictionary
 def f_score(matrix):
 	f_score_dict = {}
 	for user in matrix:
