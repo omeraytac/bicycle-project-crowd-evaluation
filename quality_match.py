@@ -1,6 +1,7 @@
 import json
 import matplotlib.pyplot as plt
 import pprint
+import sys
 
 ## returns the number of annotators in param=annotations
 # param type: json
@@ -139,10 +140,14 @@ def plot_save(data, xlabel, ylabel, title, x_rotation=0, y_rotation=0, fig=0):
 	plt.title(title)
 	plt.plot(1)
 	plt.savefig("./" + title + ".png")
+	print(title, "graph saved")
 
 
 def main():
-	with open("./anonymized_project.json") as anon:
+	if len(sys.argv) != 3:
+		print("Please enter the anonymized_project and references paths as arguments.")
+		sys.exit() 
+	with open(str(sys.argv[1])) as anon:
 		annotations = json.load(anon)
 
 	# 1-a
@@ -172,7 +177,7 @@ def main():
 	pp.pprint(others_of_users)
 
 	# 3
-	with open("./references.json") as anon:
+	with open(str(sys.argv[2])) as anon:
 		references = json.load(anon)
 	images = answers_for_images(annotations)
 	yes, no = balance_of_reference(references)
