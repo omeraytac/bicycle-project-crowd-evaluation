@@ -16,6 +16,6 @@
 
         python quality_match.py "<full path of anonymized_project.json>" "<full path of references.json>"
         
-Note: Please use slash "/" in the paths above instead of using backslash "\".
+Note: Please use slash "/" in the paths above instead of using backslash "\\".
 
 6 - Charts will be saved to the same directory with the script. 
